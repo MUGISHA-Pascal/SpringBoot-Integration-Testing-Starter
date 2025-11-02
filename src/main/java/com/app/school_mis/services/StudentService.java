@@ -1,3 +1,5 @@
+package com.app.school_mis.services;
+
 import java.util.List;
 
 import org.springframework.stereotype.Service;

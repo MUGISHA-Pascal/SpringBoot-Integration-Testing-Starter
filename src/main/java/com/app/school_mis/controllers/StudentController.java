@@ -1,4 +1,5 @@
 package com.app.school_mis.controllers;
+
 import com.app.school_mis.model.Student;
 import org.springframework.web.bind.annotation.*;
 import com.app.school_mis.services.StudentService;
@@ -9,7 +10,8 @@ import java.util.List;
 @RequestMapping("/api/v1/students")
 public class StudentController {
     private final StudentService studentService;
-    public StudentController(StudentService studentService){
+
+    public StudentController(StudentService studentService) {
         this.studentService = studentService;
     }
 
@@ -19,14 +21,13 @@ public class StudentController {
     }
 
     @PostMapping("/create")
-    public Student createStudent(@RequestBody Student student){
+    public Student createStudent(@RequestBody Student student) {
         return studentService.save(student);
     }
 
-    @DeleteMapping("/delete")
-    public void deleteStudent(@PathVariable Long id){
+    @DeleteMapping("/delete/{id}")
+    public void deleteStudent(@PathVariable Long id) {
         studentService.delete(id);
     }
 
-    
 }
